@@ -1,0 +1,41 @@
+version: '1'
+
+services:
+  eureka-sv:
+    build: eureka-sv    
+    mem_limit: 512m
+    ports:
+      - "8761:8761"
+    networks:
+      - 'proyectofinal-network'
+  api-gateway:
+    build: api-gateway
+    mem_limit: 512m
+    ports:
+      - "81:81"
+    networks:
+      - 'proyectofinal-network'
+  productos:
+    build: productos
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    networks:
+      - 'proyectofinal-network'
+  cart:
+    build: cart
+    mem_limit: 512m
+    ports:
+      - "8081:8081"
+    networks:
+      - 'proyectofinal-network'
+  sales:
+    build: sales
+    mem_limit: 512m
+    ports:
+      - "8082:8082"
+    networks:
+      - 'proyectofinal-network'
+
+networks:
+  proyectofinal-network:
